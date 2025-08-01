@@ -23,4 +23,3 @@ jobs:
  
         run: docker push ${{ secrets.DOCKER_USERNAME }}/devops-flask-app:latest
 
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/devops-flask-app:latest
