@@ -20,6 +20,14 @@ jobs:
         working-directory: pipeline-practice
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/devops-flask-app:latest .
 
+      - name: Testing the Docker image with Trivy
+        uses : aquasecurity/trivy-action@master
+        with : 
+          image-ref : devops-flask-app:latest
+          format: table
+          exit : 0
+          ignore-unfixed: true
+
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/devops-flask-app:latest
 
