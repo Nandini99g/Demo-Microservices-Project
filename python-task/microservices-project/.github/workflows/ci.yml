@@ -15,28 +15,28 @@ jobs:
 
       - name: Log in to DockerHub
         run: |
-          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+          echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
 
       # ---------- USER SERVICE ----------
       - name: Build User Service image
         working-directory: ./user-service
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/user-service:latest .
+        run: docker build -t ${{ secrets.DOCKER_USER }}/user-service:latest .
 
       - name: Push User Service image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/user-service:latest
+        run: docker push ${{ secrets.DOCKER_USER }}/user-service:latest
 
       # ---------- TASK SERVICE ----------
       - name: Build Task Service image
         working-directory: ./task-service
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/task-service:latest .
+        run: docker build -t ${{ secrets.DOCKER_USER }}/task-service:latest .
 
       - name: Push Task Service image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/task-service:latest
+        run: docker push ${{ secrets.DOCKER_USER }}/task-service:latest
 
       # ---------- GATEWAY SERVICE ----------
       - name: Build Gateway Service image
         working-directory: ./gateway-service
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/gateway-service:latest .
+        run: docker build -t ${{ secrets.DOCKER_USER }}/gateway-service:latest .
 
       - name: Push Gateway Service image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/gateway-service:latest
+        run: docker push ${{ secrets.DOCKER_USER }}/gateway-service:latest
