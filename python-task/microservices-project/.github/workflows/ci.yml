@@ -17,6 +17,7 @@ jobs:
         run: |
           echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
 
+          
       # ---------- USER SERVICE ----------
       - name: Build User Service image
         working-directory: ./user-service
