@@ -19,7 +19,7 @@ jobs:
 
       # ---------- USER SERVICE ----------
       - name: Build User Service image
-        working-directory: ./python-task/microservices-project/user-service
+        working-directory: .
         run: docker build -t ${{ secrets.DOCKER_USER }}/user-service:latest .
 
       - name: Push User Service image
@@ -27,7 +27,7 @@ jobs:
 
       # ---------- TASK SERVICE ----------
       - name: Build Task Service image
-        working-directory: ./python-task/microservices-project/task-service
+        working-directory: .
         run: docker build -t ${{ secrets.DOCKER_USER }}/task-service:latest .
 
       - name: Push Task Service image
@@ -35,7 +35,7 @@ jobs:
 
       # ---------- GATEWAY SERVICE ----------
       - name: Build Gateway Service image
-        working-directory: ./python-task/microservices-project/gateway-service
+        working-directory: .
         run: docker build -t ${{ secrets.DOCKER_USER }}/gateway-service:latest .
 
       - name: Push Gateway Service image
